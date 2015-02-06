@@ -1,5 +1,4 @@
 
-
 (* a complicated version :( *)
 let encode list =
   let rec encode_iter cur num list =
