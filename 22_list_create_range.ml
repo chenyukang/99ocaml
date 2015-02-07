@@ -7,6 +7,12 @@ let range s e =
       iter (n::acc) (n + diff) in
   List.rev (iter [] s);;
 
+let range a b =
+  let rec aux a b =
+    if a > b then [] else
+      a :: aux (a+1) b  in
+  if a > b then List.rev (aux b a) else aux a b;;
+
 let () =
   assert(range 4 9 = [4; 5; 6; 7; 8; 9]);;
 let () =
