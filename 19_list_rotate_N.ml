@@ -7,7 +7,7 @@ let rotate list n =
     | [] -> cur
     | x::tl -> if k < pos
                then (iter (x::cur) (k + 1) tl)
-               else (List.append tl (List.rev (x::cur))) in
+               else (tl @ (List.rev (x::cur))) in
   iter [] 1 list;;
 
 let () =

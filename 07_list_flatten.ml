@@ -7,7 +7,7 @@ type 'a node =
 let rec flatten = function
   | [] -> []
   | One x :: tl -> x :: (flatten tl)
-  | Many vs :: tl -> List.append (flatten vs) (flatten tl);;
+  | Many vs :: tl -> (flatten vs) @ (flatten tl);;
 
 
 let () =

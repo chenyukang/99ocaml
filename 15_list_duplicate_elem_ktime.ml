@@ -6,7 +6,7 @@ let rec replicate l n =
     else e::(create e (n - 1)) in
   let rec iter acc = function
     | [] -> []
-    | x::tl -> List.append (create x n) (replicate tl n) in
+    | x::tl -> (create x n) @ (replicate tl n) in
   iter [] l;;
 
 
