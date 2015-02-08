@@ -51,3 +51,5 @@ let huffman fs =
   let q = Pq.make(101) in
   List.iter (fun (s, f) -> Pq.add q f (Leaf s)) fs;
   prefixes_of_tree "" (huffman_tree q);;
+
+huffman ["a", 10;  "b", 15;  "c", 30;  "d", 16;  "e", 29];;
