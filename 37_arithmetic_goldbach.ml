@@ -7,9 +7,9 @@ let is_prime n =
 
 let goldbach n =
   let rec iter d =
-    if (not (is_prime d)) || (not (is_prime (n - d)))
-    then iter (d + 1) else
-      (d, n - d) in
+    if (is_prime d) && (is_prime (n-d))
+    then (d, n - d) else
+      iter (d+1) in
   iter 2;;
 
 let () =
