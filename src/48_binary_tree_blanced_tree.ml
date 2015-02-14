@@ -16,7 +16,7 @@ let rec hbal_tree h =
     (* [add_trees_with left right trees] is defined in a question above. *)
     let t1 = hbal_tree (h - 1)
     and t2 = hbal_tree (h - 2) in
-    add_trees_with t1 t1 (add_trees_with t1 t2 (add_trees_with t2 t1 []));;
+    add_trees_with t1 t2 (add_trees_with t2 t1 []);;
 
 
 let rec min_nodes h =
