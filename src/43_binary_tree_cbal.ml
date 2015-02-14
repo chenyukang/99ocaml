@@ -8,15 +8,12 @@ let add_trees_with left right all =
     List.fold_left (fun a r -> Node('x', l, r) :: a) all right in
   List.fold_left add_right_tree all left;;
 
-let rec cbal_tree n =
+let rec hbal_tree n =
   if n = 0 then [Empty]
-  else if n mod 2 = 1 then
-    let t = cbal_tree(n/2) in
-    add_trees_with t t []
+  else if n = 1 then [Node('x', Empty, Empty)]
   else
-    let t1 = cbal_tree (n/2 - 1) in
-    let t2 = cbal_tree (n/2) in
-    add_trees_with t1 t2 (add_trees_with t2 t1 []);;
+    let t1 = hbal_tree(n-1)
+    and t2 = hbal_tree(n-2) in
+    add_trees_with t1 t1 (add_trees_with t1 t2 (add_trees_with t2 t1 []));;
 
-let () =
-  assert(List.length(cbal_tree 40) = 524288);;
+let t = hbal_tree 3;;
